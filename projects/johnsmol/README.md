@@ -1,1 +1,1 @@
-Name: Molly Johnson ONID: johnsmol
+This is my assignment 2 submission!
