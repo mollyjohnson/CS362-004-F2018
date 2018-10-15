@@ -677,11 +677,32 @@ while((*drawntreasure)<2){
       }	
 }
 
-/*void mineCard()
+void council_roomCard(int currentPlayer, struct gameState *state, int *handPos)
 {
-
+	int i;
+	//+4 Cards
+    for (i = 0; i < 4; i++)
+	{
+	  drawCard(currentPlayer, state);
+	}
+			
+      //+1 Buy
+      state->numBuys++;
+			
+      //Each other player draws a card
+      for (i = 0; i < state->numPlayers; i++)
+	{
+	  if ( i != currentPlayer )
+	    {
+	      drawCard(i, state);
+	    }
+	}
+			
+      //put played card in played card pile
+      discardCard((*handPos), currentPlayer, state, 0);
 }
 
+/*
 void baronCard()
 {
 
@@ -690,7 +711,8 @@ void baronCard()
 void villageCard()
 {
 
-}*/
+}
+*/
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
@@ -716,32 +738,12 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-	  adventurerCard(&drawntreasure, state, currentPlayer, &z, temphand, &cardDrawn);
-      return 0;
+		adventurerCard(&drawntreasure, state, currentPlayer, &z, temphand, &cardDrawn);
+    	return 0;
 			
     case council_room:
-      //+4 Cards
-      for (i = 0; i < 4; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //+1 Buy
-      state->numBuys++;
-			
-      //Each other player draws a card
-      for (i = 0; i < state->numPlayers; i++)
-	{
-	  if ( i != currentPlayer )
-	    {
-	      drawCard(i, state);
-	    }
-	}
-			
-      //put played card in played card pile
-      discardCard(handPos, currentPlayer, state, 0);
-			
-      return 0;
+    	council_roomCard(currentPlayer, state, &handPos);  
+      	return 0;
 			
     case feast:
       //gain card with cost up to 5
