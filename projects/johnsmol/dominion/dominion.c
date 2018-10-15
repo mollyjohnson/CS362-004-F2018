@@ -645,6 +645,7 @@ int getCost(int cardNumber)
 
 void smithyCard(int currentPlayer, struct gameState *state, int *handPos)
 {
+	int i;
 	//+3 Cards
       for (i = 0; i < 3; i++)
 	{
@@ -652,7 +653,7 @@ void smithyCard(int currentPlayer, struct gameState *state, int *handPos)
 	}
 			
     //discard card from hand
-    discardCard(handPos, currentPlayer, state, 0);
+    discardCard((*handPos), currentPlayer, state, 0);
 }
 	
 void adventurerCard( int *drawntreasure, struct gameState *state, int currentPlayer, int *z, int temphand[], int *cardDrawn){
