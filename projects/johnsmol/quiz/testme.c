@@ -10,7 +10,7 @@ char inputChar()
 	//rand num generator formula adapted from:
 	//https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
 	int minValue = 0;
-	int maxValue = 8;
+	int maxValue = 9;
 	int randIndex = (rand() % maxValue + minValue);
 	char charOptions[] = "[({ ax})]";
 
@@ -21,13 +21,25 @@ char *inputString()
 {
     // TODO: rewrite this function
 
-	char *randString;
+	int minValue = 0;
+	int maxValue = 5;
+	int randIndex;
+	char charOptions[] = "reset";
+	static char randString[6];
 
+	//for (int i = 0; i < strlen(charOptions); i++)
+	for ( int i = 0; i < 100; i++)
+	{
+			printf("i is: %d\n", i);
+		randIndex = (rand() % maxValue + minValue);
+		//randString[i] = charOptions[randIndex]; 	
+		printf("rand number is: %d\n", randIndex);
+	}
 
     return randString;
 }
 
-void testme()
+/*void testme()
 {
   int tcCount = 0;
   char *s;
@@ -59,12 +71,15 @@ void testme()
     }
   }
 }
-
+*/
 
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    testme();
+    //testme();
 	
+	char *stringy = inputString();
+	printf("%s\n", stringy);
+
     return 0;
 }
