@@ -1,3 +1,5 @@
+//Molly Johnson, CS 362, Random Quiz
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -22,9 +24,9 @@ char *inputString()
     // TODO: rewrite this function
 
 	int minValue = 0;
-	int maxValue = 5;
+	int maxValue = 4;
 	int randIndex;
-	char charOptions[] = "reset";
+	char charOptions[] = "rest";
 	static char randString[6];
 
 	for (int i = 0; i < 5; i++)
@@ -46,9 +48,8 @@ void testme()
   {
     tcCount++;
     c = inputChar();
-    //s = inputString();
-    //printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
-    printf("Iteration %d: c = %c, state = %d\n", tcCount, c, state);
+    s = inputString();
+    printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
 
     if (c == '[' && state == 0) state = 1;
     if (c == '(' && state == 1) state = 2;
@@ -73,15 +74,7 @@ void testme()
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    //testme();
+    testme();
 	
-	for (int i = 0; i < 10000; i++)
-	{
-	char *stringy = inputString();
-	printf("%s\n", stringy);
-	if (strcmp(stringy, "reset") == 0)
-			printf("IT WORKED!");
-	}
-
     return 0;
 }
