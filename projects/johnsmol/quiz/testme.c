@@ -27,19 +27,16 @@ char *inputString()
 	char charOptions[] = "reset";
 	static char randString[6];
 
-	//for (int i = 0; i < strlen(charOptions); i++)
-	for ( int i = 0; i < 100; i++)
+	for (int i = 0; i < 5; i++)
 	{
-			printf("i is: %d\n", i);
 		randIndex = (rand() % maxValue + minValue);
-		//randString[i] = charOptions[randIndex]; 	
-		printf("rand number is: %d\n", randIndex);
+		randString[i] = charOptions[randIndex]; 	
 	}
 
     return randString;
 }
 
-/*void testme()
+void testme()
 {
   int tcCount = 0;
   char *s;
@@ -49,8 +46,9 @@ char *inputString()
   {
     tcCount++;
     c = inputChar();
-    s = inputString();
-    printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
+    //s = inputString();
+    //printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
+    printf("Iteration %d: c = %c, state = %d\n", tcCount, c, state);
 
     if (c == '[' && state == 0) state = 1;
     if (c == '(' && state == 1) state = 2;
@@ -71,15 +69,19 @@ char *inputString()
     }
   }
 }
-*/
 
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
     //testme();
 	
+	for (int i = 0; i < 10000; i++)
+	{
 	char *stringy = inputString();
 	printf("%s\n", stringy);
+	if (strcmp(stringy, "reset") == 0)
+			printf("IT WORKED!");
+	}
 
     return 0;
 }
