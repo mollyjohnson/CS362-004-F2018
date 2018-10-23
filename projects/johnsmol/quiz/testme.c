@@ -6,13 +6,25 @@
 char inputChar()
 {
     // TODO: rewrite this function
-    return ' ';
+
+	//rand num generator formula adapted from:
+	//https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
+	int minValue = 0;
+	int maxValue = 8;
+	int randIndex = (rand() % maxValue + minValue);
+	char charOptions[] = "[({ ax})]";
+
+    return charOptions[randIndex];
 }
 
 char *inputString()
 {
     // TODO: rewrite this function
-    return "";
+
+	char *randString;
+
+
+    return randString;
 }
 
 void testme()
@@ -53,5 +65,6 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
     testme();
+	
     return 0;
 }
