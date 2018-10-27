@@ -10,7 +10,7 @@ char inputChar()
     // TODO: rewrite this function
 
 	//rand num generator formula adapted from:
-	//https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
+	//https:stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
 	int minValue = 0;
 	int maxValue = 9;
 	int randIndex = (rand() % maxValue + minValue);
