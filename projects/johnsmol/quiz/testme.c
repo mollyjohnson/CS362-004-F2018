@@ -12,9 +12,9 @@ char inputChar()
 	//rand num generator formula adapted from:
 	//https:stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
 	int minValue = 0;
-	int maxValue = 9;
+	int maxValue = 13;
 	int randIndex = (rand() % maxValue + minValue);
-	char charOptions[] = "[({ ax})]";
+	char charOptions[] = "[({ ax})]rest";
 
     return charOptions[randIndex];
 }
@@ -24,9 +24,9 @@ char *inputString()
     // TODO: rewrite this function
 
 	int minValue = 0;
-	int maxValue = 4;
+	int maxValue = 13;
 	int randIndex;
-	char charOptions[] = "rest";
+	char charOptions[] = "rest[({ ax})]";
 	static char randString[6];
 
 	for (int i = 0; i < 5; i++)
