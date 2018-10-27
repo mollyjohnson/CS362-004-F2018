@@ -643,7 +643,7 @@ int getCost(int cardNumber)
   return -1;
 }
 
-void smithyCard(int currentPlayer, struct gameState *state, int *handPos)
+int smithyCard(int currentPlayer, struct gameState *state, int *handPos)
 {
 	int i;
 	//+3 Cards
@@ -654,9 +654,10 @@ void smithyCard(int currentPlayer, struct gameState *state, int *handPos)
 			
     //discard card from hand
     discardCard((*handPos), currentPlayer, state, 0);
+	return 0;
 }
 	
-void adventurerCard( int *drawntreasure, struct gameState *state, int currentPlayer, int *z, int temphand[], int *cardDrawn){
+int adventurerCard( int *drawntreasure, struct gameState *state, int currentPlayer, int *z, int temphand[], int *cardDrawn){
 while((*drawntreasure)<=2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
@@ -674,10 +675,11 @@ while((*drawntreasure)<=2){
       while((*z)-1>=0){
 	state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[(*z)-1]; // discard all cards in play that have been drawn
 	(*z)=(*z)-1;
-      }	
+      }		
+	return 0;
 }
 
-void council_roomCard(int currentPlayer, struct gameState *state, int *handPos)
+int council_roomCard(int currentPlayer, struct gameState *state, int *handPos)
 {
 	int i;
 	//+4 Cards
@@ -701,9 +703,10 @@ void council_roomCard(int currentPlayer, struct gameState *state, int *handPos)
 			
       //put played card in played card pile
       discardCard((*handPos), currentPlayer, state, 0);
+      return 0;
 }
 
-void stewardCard(int currentPlayer, struct gameState *state, int *choice1, int *choice2,
+int stewardCard(int currentPlayer, struct gameState *state, int *choice1, int *choice2,
 	int *choice3, int *handPos)
 {
 	if ((*choice1) == 1)
@@ -726,9 +729,10 @@ void stewardCard(int currentPlayer, struct gameState *state, int *choice1, int *
 			
      //discard card from hand
      discardCard((*handPos), currentPlayer, state, 0);
+	 return 0;
 }
 
-void villageCard(int currentPlayer, struct gameState *state, int *handPos)
+int villageCard(int currentPlayer, struct gameState *state, int *handPos)
 {
 	//+1 Card
     drawCard(currentPlayer, state);
@@ -739,6 +743,7 @@ void villageCard(int currentPlayer, struct gameState *state, int *handPos)
 			
     //discard played card from hand
     discardCard((*handPos), currentPlayer, state, 0);
+    return 0;
 }
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
@@ -747,6 +752,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int j;
   int k;
   int x;
+  int returnVal;
   int index;
   int currentPlayer = whoseTurn(state);
   int nextPlayer = currentPlayer + 1;
@@ -765,13 +771,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-		adventurerCard(&drawntreasure, state, currentPlayer, &z, temphand, &cardDrawn);
-    	return 0;
-			
+		returnVal = adventurerCard(&drawntreasure, state, currentPlayer, &z, temphand, &cardDrawn);
+		return returnVal;	
     case council_room:
-    	council_roomCard(currentPlayer, state, &handPos);  
-      	return 0;
-			
+    	returnVal = council_roomCard(currentPlayer, state, &handPos);  
+		return returnVal;	
     case feast:
       //gain card with cost up to 5
       //Backup hand
@@ -890,13 +894,12 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-		smithyCard(currentPlayer, state, &handPos);	
-      	return 0;
+		returnVal = smithyCard(currentPlayer, state, &handPos);	
+		return returnVal;
 		
     case village:
-		villageCard(currentPlayer, state, &handPos);
-        return 0;
-		
+		returnVal = villageCard(currentPlayer, state, &handPos);
+		return returnVal;	
     case baron:
       state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
@@ -1011,9 +1014,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case steward:
-    	stewardCard(currentPlayer, state, &choice1, &choice2, &choice3, &handPos);
-		return 0;
-		
+    	returnVal = stewardCard(currentPlayer, state, &choice1, &choice2, &choice3, &handPos);
+		return returnVal; 
     case tribute:
       if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
 	if (state->deckCount[nextPlayer] > 0){
