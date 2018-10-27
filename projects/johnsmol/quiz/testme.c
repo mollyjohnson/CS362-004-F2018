@@ -23,16 +23,11 @@ char *inputString()
 {
     // TODO: rewrite this function
 
-	int minValue = 0;
-	int maxValue = 13;
-	int randIndex;
-	char charOptions[] = "rest[({ ax})]";
 	static char randString[6];
 
 	for (int i = 0; i < 5; i++)
 	{
-		randIndex = (rand() % maxValue + minValue);
-		randString[i] = charOptions[randIndex]; 	
+		randString[i] = inputChar();
 	}
 
     return randString;
@@ -75,6 +70,6 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
     testme();
-	
+
     return 0;
 }
