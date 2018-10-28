@@ -41,7 +41,10 @@ void Assert(int expression, char* message)
 }
 
 /*
-
+This is the main function. Here the test variables will be declared/initialized,
+the printf() and custom Assert functions will be called as needed to test the
+program's behavior, and (prior to calling those functions), a replica gameState
+and test gameState structure will be created for the test suite.
 */
 int main()
 {
@@ -72,7 +75,6 @@ int main()
 
 	printf("------------------------- Testing card: %s -------------------------\n", TESTCARD);
 	printf("TEST 1: current player receives 3 cards\n");
-
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
