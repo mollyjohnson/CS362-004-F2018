@@ -57,7 +57,7 @@ int main()
 	int numActions = 1;
 	int handPos = 0;
 	int choice1 = 0;
-	int choice2 = 2;
+	int choice2 = 0;
 	int choice3 = 0;
 	int bonus = 0;
 	int remove1, remove2;
