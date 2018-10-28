@@ -41,7 +41,13 @@ void Assert(int expression, char* message)
 */
 int main()
 {
-	
-
+	/*int newCards = 0;
+	int discarded = 1;
+	int extraCoind = 0;
+	int shuffledCards = 0;
+	int numPlayers = 2;
+	struct gameState Game, testGame;
+	int cards[10] = { 
+*/
 	return 0;
 }
