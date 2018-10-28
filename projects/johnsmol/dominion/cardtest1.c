@@ -47,11 +47,17 @@ int main()
 {
 	//create variables
 	int newCards = 0;
-	int discarded = 1;
+	int discardedCards = 1;
 	int extraCoins = 0;
 	int shuffledCards = 0;
 	int numPlayers = 2;
 	int currentPlayer = 0;
+	int handPos = 0;
+	int choice1 = 0;
+	int choice2 = 2;
+	int choice3 = 0;
+	int bonus = 0;
+	int remove1, remove2;
 	//seed used to get game randomness
 	int seed = 1000;
 	//create a game state and a test game state
@@ -65,8 +71,16 @@ int main()
 	printf("------------------------- Testing card: %s -------------------------\n", TESTCARD); 
 	printf("TEST 1: current player receives 3 cards\n");
 
+	//do game state copy for the test case
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+
 	newCards = 3;
 	extraCoins = 0;
+
+	Assert(testGame.handCount[currentPlayer] == (Game.handCount[currentPlayer] + newCards -discardedCards), "hand count test");
+	printf("hand count: %d, expected: %d\n", testGame.handCount[currentPlayer],Game.handCount[currentPlayer] + newCards -discardedCards); 
+
 
 	return 0;
 }
