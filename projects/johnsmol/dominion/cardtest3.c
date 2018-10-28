@@ -75,7 +75,7 @@ int main()
 	printf("TEST 1: current player receives 3 cards\n");
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
-	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+	cardEffect(council_room, choice1, choice2, choice3, &testGame, handPos, &bonus);
 	newCards = 3;
 	Assert(testGame.handCount[currentPlayer] == (Game.handCount[currentPlayer] + newCards -discardedCards), "hand count test");
 	printf("hand count: %d, expected: %d\n", testGame.handCount[currentPlayer],Game.handCount[currentPlayer] + newCards -discardedCards);
