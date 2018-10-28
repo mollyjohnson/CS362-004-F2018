@@ -16,7 +16,7 @@ cardtest4.c
 
 int main()
 {
-	
+	printf("cardtest4 is working\n");	
 
 	return 0;
 }

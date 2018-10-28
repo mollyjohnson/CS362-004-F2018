@@ -16,7 +16,7 @@ unittest1.c
 
 int main()
 {
-	
+	printf("unittest1 is working\n");	
 
 	return 0;
 }
