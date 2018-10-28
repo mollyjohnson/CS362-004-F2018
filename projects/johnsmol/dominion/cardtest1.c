@@ -217,15 +217,12 @@ int main()
 	Assert(testGame.numBuys == Game.numBuys, "num buys test");
 	printf("num buys result: %d, expected: %d\n", testGame.numBuys, Game.numBuys);
 
-	printf("TEST 9: discardCount does not change\n");
+	printf("TEST 16: discardCount does not change\n");
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 	Assert(testGame.discardCount[currentPlayer] == Game.discardCount[currentPlayer], "discard count test");
 	printf("discard count: %d, expected: %d\n",testGame.discardCount[currentPlayer],Game.discardCount[currentPlayer]);
-
-
-
 
 	return 0;
 }
