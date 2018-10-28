@@ -19,21 +19,23 @@ cardtest4.c steward example file provided in the OSU CS 362 Fall 2018 lectures.
 #define TESTCARD "smithy"
 
 //function declarations
-void Assert(int expression);
+void Assert(int expression, char* message);
 
 /*
 
 custom assert expression adapted from:
 https://www.tutorialspoint.com/c_standard_library/assert_h.htm
 */
-void Assert(int expression)
+void Assert(int expression, char* message)
 {	
 	if(expression == 0)
 	{
+		printf("for %s: ", message);
 		printf("TEST FAILED\n");
 	}
 	else
 	{
+		printf("for %s: ", message);
 		printf("TEST SUCCESSFULLY COMPLETED\n");
 	}
 }
