@@ -39,7 +39,10 @@ void Assert(int expression, char* message)
 }
 
 /*
-
+This is the main function. Here the test variables will be declared/initialized,
+the printf() and custom Assert functions will be called as needed to test the
+program's behavior, and (prior to calling those functions), a replica gameState
+and test gameState structure will be created for the test suite.
 */
 int main()
 {
@@ -113,7 +116,7 @@ int main()
 	//kingdomcards in this game
 	//int kingdomCards[10] = { village, adventurer, village, baron, minion, great_hall, council_room, steward, gardens, mine };
 	Assert(testGame.supplyCount[smithy] == Game.supplyCount[smithy], "kingdom card smithy test");
-	printf("kingdom card village count: %d, expected: %d\n",testGame.supplyCount[village],Game.supplyCount[village]); 
+	printf("kingdom card smithy count: %d, expected: %d\n",testGame.supplyCount[smithy],Game.supplyCount[village]); 
 	Assert(testGame.supplyCount[adventurer] == Game.supplyCount[adventurer], "kingdom card adventurer test");
 	printf("kingdom card adventurer count: %d, expected: %d\n",testGame.supplyCount[adventurer],Game.supplyCount[adventurer]); 
 	Assert(testGame.supplyCount[village] == Game.supplyCount[village], "kingdom card village test");
