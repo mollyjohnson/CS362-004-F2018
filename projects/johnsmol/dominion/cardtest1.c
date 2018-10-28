@@ -212,14 +212,14 @@ int main()
 	Assert(testGame.coins == Game.coins , "coins test");
 	printf("coins result: %d, expected: %d\n", testGame.coins, Game.coins);
 
-	printf("TEST 15: numBuys does not change\n");
+	printf("TEST 16: numBuys does not change\n");
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 	Assert(testGame.numBuys == Game.numBuys, "num buys test");
 	printf("num buys result: %d, expected: %d\n", testGame.numBuys, Game.numBuys);
 
-	printf("TEST 16: discardCount does not change\n");
+	printf("TEST 17: discardCount does not change\n");
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
