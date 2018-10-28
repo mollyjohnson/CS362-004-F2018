@@ -14,6 +14,7 @@ SRCS = testme.c
 
 testme: ${OBJS}
 	${CXX} ${LDFLAGS} ${OBJS} -o testme
+	valgrind ./testme
 
 ${OBJS}: ${SRCS}
 	${CXX} ${CXXFLAGS} -c $(@:.o=.c)
