@@ -52,6 +52,7 @@ int main()
 	int shuffledCards = 0;
 	int numPlayers = 2;
 	int currentPlayer = 0;
+	int otherPlayer = 1;
 	int handPos = 0;
 	int choice1 = 0;
 	int choice2 = 2;
@@ -74,18 +75,42 @@ int main()
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
-
 	newCards = 3;
-
 	Assert(testGame.handCount[currentPlayer] == (Game.handCount[currentPlayer] + newCards -discardedCards), "hand count test");
 	printf("hand count: %d, expected: %d\n", testGame.handCount[currentPlayer],Game.handCount[currentPlayer] + newCards -discardedCards); 
+	//reset any changed variables
+	newCards = 0;
 
 	printf("TEST 2: 3 cards come from the current player's deck\n");
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
-	Assert(testGame.deckCount[currentPlayer] == (Game.deckCount[currentPlayer] - 3), "deck count test"); 
-	printf("deck count: %d, expected: %d\n", testGame.deckCount[currentPlayer], Game.deckCount[currentPlayer] - 3);
+	discardedCards = 3;
+	Assert(testGame.deckCount[currentPlayer] == (Game.deckCount[currentPlayer] - discardedCards), "deck count test"); 
+	printf("deck count: %d, expected: %d\n", testGame.deckCount[currentPlayer], Game.deckCount[currentPlayer] - discardedCards);
+	//reset any changed variables
+	discardedCards = 1;
+
+	printf("TEST 3: discard pile gains 1 card\n");
+	//do game state copy for the test case
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+	Assert(testGame.discardCount[currentPlayer] == (Game.discardCount[currentPlayer] + discardedCards), "discard pile test");
+	printf("discard count: %d, expected: %d\n", testGame.discardCount[currentPlayer], Game.discardCount[currentPlayer] + discardedCards);
+
+	printf("TEST 4: no state change for other players(hand count, deck count, discard count)\n");
+	//do game state copy for the test case
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+	Assert(testGame.handCount[otherPlayer] == (Game.handCount[otherPlayer]), "other player hand count test");
+	printf("other player hand count: %d, expected: %d\n", testGame.handCount[otherPlayer],Game.handCount[otherPlayer]); 
+	Assert(testGame.deckCount[otherPlayer] == (Game.deckCount[otherPlayer]), "other player deck count test"); 
+	printf("other player's deck count: %d, expected: %d\n", testGame.deckCount[otherPlayer], Game.deckCount[otherPlayer]);
+	Assert(testGame.discardCount[otherPlayer] == (Game.discardCount[otherPlayer]), "other player discard pile test");
+	printf("other player discard count: %d, expected: %d\n", testGame.discardCount[otherPlayer], Game.discardCount[otherPlayer]);
+
+
+
 
 	return 0;
 }
