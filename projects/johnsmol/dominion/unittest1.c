@@ -39,13 +39,18 @@ void Assert(int expression)
 */
 int main()
 {
+	/*testing for custom assert function
 	printf("unittest1 is working\n");	
 	int a = 2;
 	int b = 3;
 	Assert(a == 2); //true
 	Assert(a == b); //false
 	Assert(b == b); //tue
+	Assert(strcmp("martha", "MARTHA") == 0);
+	Assert(strcmp("martha", "martha") == 0);
+	*/
+	
+	
 
-	printf("reached the end");
 	return 0;
 }

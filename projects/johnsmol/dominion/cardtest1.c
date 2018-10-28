@@ -4,6 +4,8 @@ OSU CS 362 Fall 2018
 Assignment 3
 Due: 10/28/18
 cardtest1.c
+Some setup and general method for creating test game state, etc adapted from the
+cardtest4.c steward example file provided in the OSU CS 362 Fall 2018 lectures.
 */
 
 #include "dominion.h"
@@ -13,6 +15,8 @@ cardtest1.c
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define TESTCARD "smithy"
 
 //function declarations
 void Assert(int expression);
