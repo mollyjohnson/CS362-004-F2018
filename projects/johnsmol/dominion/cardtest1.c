@@ -76,11 +76,16 @@ int main()
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 
 	newCards = 3;
-	extraCoins = 0;
 
 	Assert(testGame.handCount[currentPlayer] == (Game.handCount[currentPlayer] + newCards -discardedCards), "hand count test");
 	printf("hand count: %d, expected: %d\n", testGame.handCount[currentPlayer],Game.handCount[currentPlayer] + newCards -discardedCards); 
 
+	printf("TEST 2: current player discards one card\n");
+	//do game state copy for the test case
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+	Assert(testGame.deckCount[currentPlayer] == (Game.deckCount[currentPlayer] - 3), "deck count test"); 
+	printf("deck count: %d, expected: %d\n", testGame.deckCount[currentPlayer], Game.deckCount[currentPlayer] - 3);
 
 	return 0;
 }

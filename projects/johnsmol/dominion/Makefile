@@ -12,41 +12,36 @@ unittestresults: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c car
 	echo "unittest1.c:" >> tests.out
 	gcc -o unittest1 -g -fpic -lm -coverage unittest1.c dominion.o rngs.o $(CFLAGS)
 	./unittest1 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "unittest2.c:" >> tests.out
 	gcc -o unittest2 -g -fpic -lm -coverage unittest2.c dominion.o rngs.o $(CFLAGS)
 	./unittest2 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "unittest3.c:" >> tests.out
 	gcc -o unittest3 -g -fpic -lm -coverage unittest3.c dominion.o rngs.o $(CFLAGS)
 	./unittest3 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "unittest4.c:" >> tests.out
 	gcc -o unittest4 -g -fpic -lm -coverage unittest4.c dominion.o rngs.o $(CFLAGS)
 	./unittest4 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "cardtest1.c:" >> tests.out
 	gcc -o cardtest1 -g -fpic -lm -coverage cardtest1.c dominion.o rngs.o $(CFLAGS)
 	./cardtest1 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "cardtest2.c:" >> tests.out
 	gcc -o cardtest2 -g -fpic -lm -coverage cardtest2.c dominion.o rngs.o $(CFLAGS)
 	./cardtest2 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "cardtest3.c:" >> tests.out
 	gcc -o cardtest3 -g -fpic -lm -coverage cardtest3.c dominion.o rngs.o $(CFLAGS)
 	./cardtest3 >> tests.out
-	gcov dominion.c -f -b >> tests.out
 	
 	echo "cardtest4.c:" >> tests.out
 	gcc -o cardtest4 -g -fpic -lm -coverage cardtest4.c dominion.o rngs.o $(CFLAGS)
 	./cardtest4 >> tests.out
+	
+	#run gcov on dominion.c with -f (function) flag and -b (branch) flag
 	gcov dominion.c -f -b >> tests.out
 	
 rngs.o: rngs.h rngs.c
