@@ -15,21 +15,23 @@ unittest1.c
 #include <string.h>
 
 //function declarations
-void Assert(int expression);
+void Assert(int expression, char* message);
 
 /*
 
 custom assert expression adapted from:
 https://www.tutorialspoint.com/c_standard_library/assert_h.htm
 */
-void Assert(int expression)
+void Assert(int expression, char* message)
 {	
 	if(expression == 0)
 	{
+		printf("for %s: ", message);
 		printf("TEST FAILED\n");
 	}
 	else
 	{
+		printf("for %s: ", message);
 		printf("TEST SUCCESSFULLY COMPLETED\n");
 	}
 }
@@ -39,17 +41,6 @@ void Assert(int expression)
 */
 int main()
 {
-	/*testing for custom assert function
-	printf("unittest1 is working\n");	
-	int a = 2;
-	int b = 3;
-	Assert(a == 2); //true
-	Assert(a == b); //false
-	Assert(b == b); //tue
-	Assert(strcmp("martha", "MARTHA") == 0);
-	Assert(strcmp("martha", "martha") == 0);
-	*/
-	
 	
 
 	return 0;

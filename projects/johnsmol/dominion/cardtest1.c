@@ -43,7 +43,7 @@ void Assert(int expression)
 */
 int main()
 {
-	printf("cardtest1 is working\n");	
+	
 
 	return 0;
 }
