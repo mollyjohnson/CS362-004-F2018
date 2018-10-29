@@ -35,7 +35,10 @@ void Assert(int expression)
 }
 
 /*
-
+This is the main function. Here the test variables will be declared/initialized,
+the printf() and custom Assert functions will be called as needed to test the
+program's behavior, and (prior to calling those functions), a replica gameState
+and test gameState structure will be created for the test suite.
 */
 int main()
 {

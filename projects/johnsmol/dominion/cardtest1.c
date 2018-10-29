@@ -51,7 +51,6 @@ int main()
 	//create variables
 	int newCards = 0;
 	int discardedCards = 1;
-	int extraCoins = 0;
 	int shuffledCards = 0;
 	int numPlayers = 2;
 	int currentPlayer = 0;
@@ -61,7 +60,6 @@ int main()
 	int choice2 = 0;
 	int choice3 = 0;
 	int bonus = 0;
-	int remove1, remove2;
 	//seed used to get game randomness
 	int seed = 1000;
 	//create a game state and a test game state
