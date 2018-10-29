@@ -71,6 +71,50 @@ int main()
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 
+	printf("TEST 1: game should end, three supply piles 0 but province cards not 0\n");	
+
+	//NOTE: VALUE OF 1 = GAME OVER, VALUE OF 0 = GAME NOT OVER
+	int i;
+	int true = 1;
+	int false = 0;
+	for(i = 0; i < 27; i++)
+	{
+		testGame.supplyCount[i] = 0;
+	}
+	testGame.supplyCount[province] = 10;
+	int isOver;
+	isOver = isGameOver(&testGame);
+	Assert(isOver == true,"3 supply piles 0 but province cards are not 0 test");
+	printf("is game over: %d, expected: %d\n", isOver, true);
+	
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	printf("TEST 2: game should end, province cards are 0 and 3 supply piles are not 0\n");
+	for(i = 0; i < 27; i++)
+	{
+		testGame.supplyCount[i] = 5;
+	}
+
+	testGame.supplyCount[duchy] = 0;
+	testGame.supplyCount[province] = 0;
+	isOver = isGameOver(&testGame);
+	Assert(isOver == true,"province cards are 0 and 3 supply piles are not test");
+	printf("is game over: %d, expected: %d\n", isOver, true);
+
+	memcpy(&testGame, &Game, sizeof(struct gameState));
+	printf("TEST 3: game should not end, province cards are not 0 and supply piles at 0 isn't >= 3\n");
+
+	//make 2 supply pile 0 to check for case where it ended the game any time even one supply pile was 0
+	for(i = 0; i < 27; i++)
+	{
+		testGame.supplyCount[i] = 5;
+	}	
+
+	//only 2 supply piles are at 0
+	testGame.supplyCount[duchy] = 0;
+	testGame.supplyCount[smithy] = 0;
+	isOver = isGameOver(&testGame);
+	Assert(isOver == false,"province cards are 0 and 3 supply piles are not test");
+	printf("is game over: %d, expected: %d\n", isOver, false);
 
 	return 0;
 }

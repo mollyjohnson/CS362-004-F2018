@@ -70,9 +70,7 @@ int main()
 	
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
-
 	int handCardIndex = handCard(handPos, &testGame);
-
 	printf("TEST 1: current player's hand at handPos 0\n");
 	Assert(handCardIndex == Game.hand[currentPlayer][handPos], "hand card test");
 	printf("hand card index: %d, expected: %d\n", handCardIndex, Game.hand[currentPlayer][handPos]);
