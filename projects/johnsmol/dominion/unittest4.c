@@ -3,7 +3,7 @@ Molly Johnson
 OSU CS 362 Fall 2018
 Assignment 3
 Due: 10/28/18
-unittest4.c
+unittest1.c
 */
 
 #include "dominion.h"
@@ -15,21 +15,25 @@ unittest4.c
 #include <string.h>
 
 //function declarations
-void Assert(int expression);
+void Assert(int expression, char* message);
+
+#define FUNCTION_NAME ""
 
 /*
 
 custom assert expression adapted from:
 https://www.tutorialspoint.com/c_standard_library/assert_h.htm
 */
-void Assert(int expression)
+void Assert(int expression, char* message)
 {	
 	if(expression == 0)
 	{
+		printf("%s: ", message);
 		printf("TEST FAILED\n");
 	}
 	else
 	{
+		printf("%s: ", message);
 		printf("TEST SUCCESSFULLY COMPLETED\n");
 	}
 }
@@ -42,7 +46,7 @@ and test gameState structure will be created for the test suite.
 */
 int main()
 {
-	printf("unittest4 is working\n");	
+
 
 	return 0;
 }
