@@ -47,13 +47,6 @@ and test gameState structure will be created for the test suite.
 int main()
 {
 	int numPlayers = 2;
-	int currentPlayer = 0;
-	int otherPlayer = 1;
-	int handPos = 0;
-	int choice1 = 0;
-	int choice2 = 0;
-	int choice3 = 0;
-	int bonus = 0;
 	//seed used to get game randomness
 	int seed = 1000;
 	//create a game state and a test game state

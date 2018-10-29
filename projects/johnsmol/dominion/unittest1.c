@@ -17,7 +17,7 @@ unittest1.c
 //function declarations
 void Assert(int expression, char* message);
 
-#define FUNCTION_NAME "updateCoins"
+#define FUNCTION_NAME "getCost"
 
 /*
 
