@@ -12,19 +12,22 @@ randomtestresults: randomtestcard1.c randomtestcard2.c randomtestadventurer.c do
 	echo "randomtestcard1.c (smithy):" >> randomtestcard1.out
 	gcc -o randomtestcard1 -g -fpic -lm -coverage randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard1 >> randomtestcard1.out
+	#run gcov on dominion.c with -f (function) flag and -b (branch) flag
+	gcov dominion.c -f -b >> randomtestcard1.out
 	
 	echo "Results running for randomtestcard2.c (village)" > randomtestcard2.out
 	echo "randomtestcard2.c (village):" >> randomtestcard2.out
 	gcc -o randomtestcard2 -g -fpic -lm -coverage randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard2 >> randomtestcard2.out
+	#run gcov on dominion.c with -f (function) flag and -b (branch) flag
+	gcov dominion.c -f -b >> randomtestcard2.out
 	
 	echo "Results running for randomtestadventurer.c (adventurer)" > randomtestadventurer.out
 	echo "randomtestadventurer.c (adventurer):" >> randomtestadventurer.out
 	gcc -o randomtestadventurer -g -fpic -lm -coverage randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 	./randomtestadventurer >> randomtestadventurer.out
-
-#run gcov on dominion.c with -f (function) flag and -b (branch) flag
-	gcov dominion.c -f -b >> tests.out
+	#run gcov on dominion.c with -f (function) flag and -b (branch) flag
+	gcov dominion.c -f -b >> randomtestadventurer.out
 	
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
