@@ -113,9 +113,30 @@ int main()
 
 		
 		printf("------------------------- Random test: %d  -------------------------\n", i);	
-		printf("for each random test, will test with all players as the current player in sequential order (indicated by current player number from positions 0 to \n");
-		printf("numPlayers - 1), and will select  another player at random to be the other player and check for gamestate changes to other players.\n");
+		printf("\nRandom test %d , current player %d, random other player %d randomized variable values:\n", i, currentPlayer, otherPlayer);
+		printf("num players: %d\n", numPlayers);
+		printf("current player: %d\n", currentPlayer);
+		printf("random other player: %d\n", otherPlayer);
+		printf("choice 1: %d\n", choice1);
+		printf("choice 2: %d\n", choice2);
+		printf("choice 3: %d\n", choice3);
+		printf("bonus: %d\n", bonus);
+		printf("hand position: %d\n", handPos);
+		printf("seed for game randomization: %d\n", seed);
+		printf("testGame.handCount[k] is: %d\n",testGame.handCount[currentPlayer]);
+		printf("testGame.deckCount[k] is: %d\n",testGame.deckCount[currentPlayer]);
+		printf("Game.handCount[k] is: %d\n",Game.handCount[currentPlayer]);
+		printf("Game.deckCount[k] is: %d\n",Game.deckCount[currentPlayer]);
 
+		memcpy(&testGame, &Game, sizeof(struct gameState));
+		cardEffect(adventurer, choice1, choice2, choice3, &testGame, handPos, &bonus);
+	
+		Assert(testGame.handCount[currentPlayer] == (Game.handCount[currentPlayer] + 2), "hand count test");
+		tests++;
+
+		/*printf("for each random test, will test with all players as the current player in sequential order (indicated by current player number from positions 0 to \n");
+		printf("numPlayers - 1), and will select  another player at random to be the other player and check for gamestate changes to other players.\n");
+		
 		int k;
 		for(k = 0; k < numPlayers; k++)
 		{
@@ -124,13 +145,10 @@ int main()
 				otherPlayer = GetRandomNum(0, numPlayers - 1); 
 			}while(otherPlayer == k);
 
-			//testGame.handCount[k] = GetRandomNum(1, (MAX_HAND - 1));
-			//testGame.deckCount[k] = (GetRandomNum(1, (MAX_DECK)) - GetRandomNum(1, (MAX_HAND)));
-			testGame.handCount[k] = 1;
-			testGame.deckCount[k] = 500;
-			Game.handCount[k] = 1;
-			Game.deckCount[k] = 500;
-			
+			//testGame.handCount[k] = GetRandomNum(1, (MAX_HAND));
+			//testGame.deckCount[k] = ((GetRandomNum(1, (MAX_DECK))) - testGame.handCount[k]);
+			//testGame.handCount[k] = rand() % MAX_HAND;
+			//testGame.deckCount[k] = ((rand() % MAX_DECK) - testGame.handCount[k]);
 			printf("\nRandom test %d , iteration %d,  current player %d, random other player %d randomized variable values:\n", i, k, k, otherPlayer);
 			printf("num players: %d\n", numPlayers);
 			printf("current player: %d\n", k);
@@ -140,9 +158,11 @@ int main()
 			printf("choice 3: %d\n", choice3);
 			printf("bonus: %d\n", bonus);
 			printf("hand position: %d\n", handPos);
-			printf("seed for game randomization: %d\n\n", seed);
+			printf("seed for game randomization: %d\n", seed);
+			printf("testGame.handCount[k] is: %d\n",testGame.handCount[k]);
+			printf("testGame.deckCount[k] is: %d\n",testGame.deckCount[k]);
 			
-			/*printf("TEST 1: current player receives 2 cards\n");
+			printf("TEST 1: current player receives 2 cards\n");
 			//do game state copy for the test case
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(adventurer, choice1, choice2, choice3, &testGame, handPos, &bonus);
@@ -323,10 +343,10 @@ int main()
 			cardEffect(adventurer, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.discardCount[k] == Game.discardCount[k], "discard count test");
 			tests++;
-			printf("discard count: %d, expected: %d\n",testGame.discardCount[k],Game.discardCount[k]);*/
-
+			printf("discard count: %d, expected: %d\n",testGame.discardCount[k],Game.discardCount[k]);
 			
 		}
+	*/
 	}	
 
 	printf("\ntotal num of tests run: %d\ntotal num of tests passed: %d\n\n", tests, testsPassed);
