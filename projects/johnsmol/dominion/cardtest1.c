@@ -1,12 +1,11 @@
 /*
- * Molly Johnson
- * OSU CS 362 Fall 2018
- * Assignment 4
- * Due: 11/14/18
- * randomtestcard1.c
- * Some setup and general method for creating test game state, etc adapted from the
- * cardtest4.c steward example file provided in the OSU CS 362 Fall 2018 lectures as
- * well as my own work from my OSU CS 362 Fall 2018 Assignment 3.
+Molly Johnson
+OSU CS 362 Fall 2018
+Assignment 3
+Due: 10/28/18
+cardtest1.c
+Some setup and general method for creating test game state, etc adapted from the
+cardtest4.c steward example file provided in the OSU CS 362 Fall 2018 lectures.
 */
 
 #include "dominion.h"
@@ -16,29 +15,18 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 #define TESTCARD "smithy"
 
 //function declarations
-void Assert(int expression, char *message);
-int GetRandomNum(int minNum, int maxNum);
+void Assert(int expression, char* message);
 
 /*
- * random num function adapted from my own work created 10/25/18 
-*/
-int GetRandomNum(int minNum, int maxNum)
-{
-	int randNum = (rand() % (maxNum - minNum + 1) + minNum);
 
-	return randNum;
-}
-
-/*
- * custom assert expression adapted from:
- * https://www.tutorialspoint.com/c_standard_library/assert_h.htm
+custom assert expression adapted from:
+https://www.tutorialspoint.com/c_standard_library/assert_h.htm
 */
-void Assert(int expression, char *message)
+void Assert(int expression, char* message)
 {
 	if(expression == 0)
 	{
@@ -53,35 +41,20 @@ void Assert(int expression, char *message)
 }
 
 /*
- * This is the main function. Here the test variables will be declared/initialized,
- * randomization for the testing will occur, the printf() and custom Assert functions
- * will be called as needed to test the program's behavior, and (prior to calling those
- * function), a replica gameState and test gameState structure will be created for
- * the test suite.
+This is the main function. Here the test variables will be declared/initialized,
+the printf() and custom Assert functions will be called as needed to test the
+program's behavior, and (prior to calling those functions), a replica gameState
+and test gameState structure will be created for the test suite.
 */
 int main()
 {
-	//seed rand
-	srand(time(NULL));
-	
-	int i;
-	int testCount = 50;
-	for(i = 0; i < testCount; i++)
-	{ 
-	/*//create variables
+	//create variables
 	int newCards = 0;
 	int discardedCards = 1;
 	int shuffledCards = 0;
 	int numPlayers = 2;
-	
-	//min players 2, max players 6.
-	//min and max players allowed for dominion taken from:
-	//https://www.quora.com/How-many-players-is-Dominion-ideal-for
-	//int numPlayers = GetRandomNum(2, 6);
 	int currentPlayer = 0;
 	int otherPlayer = 1;
-	//randomize other player besides current player to be any of the other 5 players
-	//int otherPlayer = GetRandomNum(1, 5);
 	int handPos = 0;
 	int choice1 = 0;
 	int choice2 = 0;
@@ -89,9 +62,6 @@ int main()
 	int bonus = 0;
 	//seed used to get game randomness
 	int seed = 1000;
-	
-	//int seed = GetRandomNum(1, 1000);
-	
 	//create a game state and a test game state
 	struct gameState Game, testGame;
 	//10 "action" cards are allowed per game (tho these can differ per game). are 27 options total in this version
@@ -252,9 +222,7 @@ int main()
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 	Assert(testGame.discardCount[currentPlayer] == Game.discardCount[currentPlayer], "discard count test");
-	printf("discard count: %d, expected: %d\n",testGame.discardCount[currentPlayer],Game.discardCount[currentPlayer]);*/
+	printf("discard count: %d, expected: %d\n",testGame.discardCount[currentPlayer],Game.discardCount[currentPlayer]);
 
-	printf("------------------------- Random testing card: %s -------------------------\n", TESTCARD);	
-	}	
 	return 0;
 }
