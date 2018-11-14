@@ -18,7 +18,11 @@
 #include <string.h>
 #include <time.h>
 
+//define macros
 #define TESTCARD "smithy"
+
+//one global variable
+int testsPassed = 0;
 
 //function declarations
 void Assert(int expression, char *message);
@@ -49,6 +53,7 @@ void Assert(int expression, char *message)
 	{
 		printf("%s: ", message);
 		printf("TEST SUCCESSFULLY COMPLETED\n");
+		testsPassed++;
 	}
 }
 
@@ -63,44 +68,12 @@ int main()
 {
 	//seed rand
 	srand(time(NULL));
-	
 	int i;
 	int testCount = 50;
-	for(i = 0; i < testCount; i++)
+	for(i = 1; i <= testCount; i++)
 	{ 
-	/*//create variables
-	int newCards = 0;
-	int discardedCards = 1;
-	int shuffledCards = 0;
-	int numPlayers = 2;
 	
-	//min players 2, max players 6.
-	//min and max players allowed for dominion taken from:
-	//https://www.quora.com/How-many-players-is-Dominion-ideal-for
-	//int numPlayers = GetRandomNum(2, 6);
-	int currentPlayer = 0;
-	int otherPlayer = 1;
-	//randomize other player besides current player to be any of the other 5 players
-	//int otherPlayer = GetRandomNum(1, 5);
-	int handPos = 0;
-	int choice1 = 0;
-	int choice2 = 0;
-	int choice3 = 0;
-	int bonus = 0;
-	//seed used to get game randomness
-	int seed = 1000;
-	
-	//int seed = GetRandomNum(1, 1000);
-	
-	//create a game state and a test game state
-	struct gameState Game, testGame;
-	//10 "action" cards are allowed per game (tho these can differ per game). are 27 options total in this version
-	//of dominion, but you're only allowed 10 per game so only 10 will be tested in this test suite
-	int kingdomCards[10] = { smithy, adventurer, village, baron, minion, great_hall, council_room, steward, gardens, mine };
-
-	//initialize the game with the given num of players and variables
-	initializeGame(numPlayers, kingdomCards, seed, &Game);
-
+/*
 	printf("------------------------- Testing card: %s -------------------------\n", TESTCARD);
 	printf("TEST 1: current player receives 3 cards\n");
 	//do game state copy for the test case
@@ -253,8 +226,49 @@ int main()
 	cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 	Assert(testGame.discardCount[currentPlayer] == Game.discardCount[currentPlayer], "discard count test");
 	printf("discard count: %d, expected: %d\n",testGame.discardCount[currentPlayer],Game.discardCount[currentPlayer]);*/
+		//create variables
+		int newCards = 0;
+		int discardedCards = 1;
+		int shuffledCards = 0;
+	
+		//testsed with min num of players (2) and the dominion.h max of 4.
+		int numPlayers = GetRandomNum(2, 4);
+		int currentPlayer = 0;
 
-	printf("------------------------- Random testing card: %s -------------------------\n", TESTCARD);	
+		//randomize other player besides current player to be any of the other players
+		int otherPlayer = GetRandomNum(1, numPlayers - 1);
+		//int choice1 = 0;
+		//int choice2 = 0;
+		//int choice3 = 0;
+		//int bonus = 0;
+
+		//max hand of 500 taken from the code
+		int maxHand = 500; 
+		int handPos = GetRandomNum(0,maxHand);;
+		
+		//seed used to get game randomness
+		//int seed = 1000;
+	
+		int seed = GetRandomNum(1, 2000);
+		//create a game state and a test game state
+		struct gameState Game, testGame;
+		//10 "action" cards are allowed per game (tho these can differ per game). are 27 options total in this version
+		//of dominion, but you're only allowed 10 per game so only 10 will be tested in this test suite
+		int kingdomCards[10] = { smithy, adventurer, village, baron, minion, great_hall, council_room, steward, gardens, mine };
+
+		//initialize the game with the given num of players and variables
+		initializeGame(numPlayers, kingdomCards, seed, &Game);
+		testGame.whoseTurn = otherPlayer;
+		//do game state copy for the test case
+		memcpy(&testGame, &Game, sizeof(struct gameState));
+		cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+
+		printf("------------------------- Testing card: %s, random test %d  -------------------------\n", TESTCARD, i);	
+
+		
 	}	
+
+	printf("total num of tests run: %d\ntotal num of tests passed: %d\n", testCount, testsPassed);
+
 	return 0;
 }
