@@ -128,6 +128,8 @@ int main()
 			//testGame.deckCount[k] = ((GetRandomNum(1, (MAX_DECK))) - testGame.handCount[k]);
 			//testGame.handCount[k] = rand() % MAX_HAND;
 			//testGame.deckCount[k] = ((rand() % MAX_DECK) - testGame.handCount[k]);
+			testGame.handCount[k] = Game.handCount[k];
+			testGame.deckCount[k] = Game.deckCount[k];
 			printf("\nRandom test %d , iteration %d,  current player %d, random other player %d randomized variable values:\n", i, k, k, otherPlayer);
 			printf("num players: %d\n", numPlayers);
 			printf("current player: %d\n", k);
