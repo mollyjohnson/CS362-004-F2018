@@ -72,7 +72,7 @@ int main()
 	srand(time(NULL));
 	int i;
 	int testCount = 50;
-
+	int tests = 0;
 	for(i = 1; i <= testCount; i++)
 	{ 
 		//create variables
@@ -111,8 +111,9 @@ int main()
 		testGame.whoseTurn = currentPlayer;
 		
 		printf("------------------------- Random test: %d  -------------------------\n", i);	
-		printf("for each random test, will test with all players (indicated by a number from  positions 0 to \n");
-		printf("represent the first player to numPlayers - 1 to represent the last player.\n");
+		printf("for each random test, will test with all players as the current player in sequential order (indicated by current player number from positions 0 to \n");
+		printf("numPlayers - 1), and will select  another player at random to be the other player and check for gamestate changes to other players.\n");
+
 		int k;
 		for(k = 0; k < numPlayers; k++)
 		{
@@ -121,7 +122,7 @@ int main()
 				otherPlayer = GetRandomNum(0, numPlayers - 1); 
 			}while(otherPlayer == k);
 
-			printf("Random test %d , current player %d, random other player %d randomized variable values:\n", i, k, otherPlayer);
+			printf("\nRandom test %d , iteration %d,  current player %d, random other player %d randomized variable values:\n", i, k, k, otherPlayer);
 
 			printf("num players: %d\n", numPlayers);
 			printf("current player: %d\n", k);
@@ -139,6 +140,7 @@ int main()
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			newCards = 3;
 			Assert(testGame.handCount[k] == (Game.handCount[k] + newCards -discardedCards), "hand count test");
+			tests++;
 			printf("hand count: %d, expected: %d\n", testGame.handCount[k],Game.handCount[k] + newCards -discardedCards);
 			//reset any changed variables
 			newCards = 0;
@@ -149,6 +151,7 @@ int main()
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			discardedCards = 3;
 			Assert(testGame.deckCount[k] == (Game.deckCount[k] - discardedCards), "deck count test");
+			tests++;
 			printf("deck count: %d, expected: %d\n", testGame.deckCount[k], Game.deckCount[k] - discardedCards + shuffledCards);
 			//reset any changed variables
 			discardedCards = 1;
@@ -158,6 +161,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.discardCount[k] == (Game.discardCount[k]), "discard pile test");
+			tests++;
 			printf("discard count: %d, expected: %d\n", testGame.discardCount[k], Game.discardCount[k]);
 
 			printf("TEST 4: no state change for things specific to other players (hand count, deck count, discard count\n");
@@ -165,10 +169,13 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.handCount[otherPlayer] == (Game.handCount[otherPlayer]), "other player hand count test");
+			tests++;
 			printf("other player hand count: %d, expected: %d\n", testGame.handCount[otherPlayer],Game.handCount[otherPlayer]);
 			Assert(testGame.deckCount[otherPlayer] == (Game.deckCount[otherPlayer]), "other player deck count test");
+			tests++;
 			printf("other player's deck count: %d, expected: %d\n", testGame.deckCount[otherPlayer], Game.deckCount[otherPlayer]);
 			Assert(testGame.discardCount[otherPlayer] == (Game.discardCount[otherPlayer]), "other player discard pile test");
+			tests++;
 			printf("other player discard count: %d, expected: %d\n", testGame.discardCount[otherPlayer], Game.discardCount[otherPlayer]);
 
 			printf("TEST 5: no state change to victory card piles\n");
@@ -178,34 +185,48 @@ int main()
 			//kingdomcards in this game
 			//int kingdomCards[10] = { smithy, adventurer, village, baron, minion, great_hall, council_room, steward, gardens, mine };
 			Assert(testGame.supplyCount[smithy] == Game.supplyCount[smithy], "kingdom card smithy test");
+			tests++;
 			printf("kingdom card smithy count: %d, expected: %d\n",testGame.supplyCount[smithy],Game.supplyCount[smithy]); 
 			Assert(testGame.supplyCount[adventurer] == Game.supplyCount[adventurer], "kingdom card adventurer test");
+			tests++;
 			printf("kingdom card adventurer count: %d, expected: %d\n",testGame.supplyCount[adventurer],Game.supplyCount[adventurer]); 
 			Assert(testGame.supplyCount[village] == Game.supplyCount[village], "kingdom card village test");
+			tests++;
 			printf("kingdom card village count: %d, expected: %d\n",testGame.supplyCount[village],Game.supplyCount[village]); 
 			Assert(testGame.supplyCount[baron] == Game.supplyCount[baron], "kingdom card baron test");
+			tests++;
 			printf("kingdom card baron count: %d, expected: %d\n",testGame.supplyCount[baron],Game.supplyCount[baron]); 
 			Assert(testGame.supplyCount[minion] == Game.supplyCount[minion], "kingdom card minion test");
+			tests++;
 			printf("kingdom card minion count: %d, expected: %d\n",testGame.supplyCount[minion],Game.supplyCount[minion]); 
 			Assert(testGame.supplyCount[great_hall] == Game.supplyCount[great_hall], "kingdom card great_hall test");
+			tests++;
 			printf("kingdom card great_hall count: %d, expected: %d\n",testGame.supplyCount[great_hall],Game.supplyCount[great_hall]); 
 			Assert(testGame.supplyCount[council_room] == Game.supplyCount[council_room], "kingdom card council_room test");
+			tests++;
 			printf("kingdom card council_room count: %d, expected: %d\n",testGame.supplyCount[council_room],Game.supplyCount[council_room]); 
 			Assert(testGame.supplyCount[steward] == Game.supplyCount[steward], "kingdom card steward test");
+			tests++;
 			printf("kingdom card steward count: %d, expected: %d\n",testGame.supplyCount[steward],Game.supplyCount[steward]); 
 			Assert(testGame.supplyCount[gardens] == Game.supplyCount[gardens], "kingdom card gardens test");
+			tests++;
 			printf("kingdom card gardens count: %d, expected: %d\n",testGame.supplyCount[gardens],Game.supplyCount[gardens]); 
 			Assert(testGame.supplyCount[mine] == Game.supplyCount[mine], "kingdom card mine test");
+			tests++;
 			printf("kingdom card mine count: %d, expected: %d\n",testGame.supplyCount[mine],Game.supplyCount[mine]); 
 			
 			printf("TEST 6: no state change to kingdom card piles\n");
 			//do game state copy for the test case
 			memcpy(&testGame, &Game, sizeof(struct gameState));
-			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);Assert(testGame.supplyCount[estate] == Game.supplyCount[estate], "victory card estate test");
+			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
+			Assert(testGame.supplyCount[estate] == Game.supplyCount[estate], "victory card estate test");
+			tests++;
 			printf("victory card estate count: %d, expected: %d\n",testGame.supplyCount[estate],Game.supplyCount[estate]); 
 			Assert(testGame.supplyCount[duchy] == Game.supplyCount[duchy], "victory card duchy test");
+			tests++;
 			printf("victory card duchy count: %d, expected: %d\n",testGame.supplyCount[duchy],Game.supplyCount[duchy]); 
 			Assert(testGame.supplyCount[province] == Game.supplyCount[province], "victory card province test");
+			tests++;
 			printf("victory card province count: %d, expected: %d\n",testGame.supplyCount[province],Game.supplyCount[province]); 
 
 			printf("TEST 7: played card pile increases by 1 (since original card is played not trashed)\n");
@@ -213,6 +234,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.playedCardCount == (Game.playedCardCount + 1), "played card pile test");
+			tests++;
 			printf("played card count count: %d, expected: %d\n", testGame.playedCardCount, Game.playedCardCount + 1);
 
 			printf("TEST 8: numPlayers does not change\n");
@@ -220,6 +242,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.numPlayers == Game.numPlayers, "other player hand count test");
+			tests++;
 			printf("num players: %d, expected: %d\n", testGame.numPlayers, Game.numPlayers);
 
 			printf("TEST 9: embargoTokens does not change\n");
@@ -227,6 +250,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.embargoTokens[choice1] == Game.embargoTokens[choice1], "embargo token count test");
+			tests++;
 			printf("embargo token count: %d, expected: %d\n",testGame.embargoTokens[choice1],Game.embargoTokens[choice1]);
 
 			printf("TEST 10: outpostPlayed does not change\n");
@@ -234,6 +258,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.outpostPlayed == Game.outpostPlayed, "outpost played test");
+			tests++;
 			printf("outpost played result: %d, expected: %d\n", testGame.outpostPlayed, Game.outpostPlayed);
 
 			printf("TEST 11: outpostTurn does not change\n");
@@ -241,6 +266,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.outpostTurn == Game.outpostTurn, "outpost turn test");
+			tests++;
 			printf("outpost turn result: %d, expected: %d\n", testGame.outpostTurn, Game.outpostTurn);
 
 			printf("TEST 12: whoseTurn does not change\n");
@@ -248,6 +274,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.whoseTurn == Game.whoseTurn, "whose turn test");
+			tests++;
 			printf("whose turn result: %d, expected: %d\n", testGame.whoseTurn, Game.whoseTurn);
 
 			printf("TEST 13: phase does not change\n");
@@ -255,6 +282,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.phase == Game.phase, "phase test");
+			tests++;
 			printf("phase result: %d, expected: %d\n", testGame.phase, Game.phase);
 
 			printf("TEST 14: numActions does not change\n");
@@ -262,6 +290,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.numActions == Game.numActions, "num actions test");
+			tests++;
 			printf("num actions result: %d, expected: %d\n", testGame.numActions , Game.numActions);
 
 			printf("TEST 15: coins does not change\n");
@@ -269,6 +298,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.coins == Game.coins , "coins test");
+			tests++;
 			printf("coins result: %d, expected: %d\n", testGame.coins, Game.coins);
 
 			printf("TEST 16: numBuys does not change\n");
@@ -276,6 +306,7 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.numBuys == Game.numBuys, "num buys test");
+			tests++;
 			printf("num buys result: %d, expected: %d\n", testGame.numBuys, Game.numBuys);
 
 			printf("TEST 17: discardCount does not change\n");
@@ -283,11 +314,12 @@ int main()
 			memcpy(&testGame, &Game, sizeof(struct gameState));
 			cardEffect(smithy, choice1, choice2, choice3, &testGame, handPos, &bonus);
 			Assert(testGame.discardCount[k] == Game.discardCount[k], "discard count test");
+			tests++;
 			printf("discard count: %d, expected: %d\n",testGame.discardCount[k],Game.discardCount[k]);
 		}
 	}	
 
-	printf("total num of tests run: %d\ntotal num of tests passed: %d\n", testCount, testsPassed);
+	printf("\ntotal num of tests run: %d\ntotal num of tests passed: %d\n\n", tests, testsPassed);
 
 	return 0;
 }
