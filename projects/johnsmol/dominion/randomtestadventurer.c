@@ -82,7 +82,7 @@ int main()
 		int numPlayers = GetRandomNum(2, 4);
 
 		//randomize other player besides current player to be any of the other players
-		int currentPlayer = GetRandomNum(0, numPlayers - 1);
+		//int currentPlayer = GetRandomNum(0, numPlayers - 1);
 		int otherPlayer;
 
 		//randomize choices and bonuses
@@ -109,7 +109,6 @@ int main()
 
 		//advice on what to set the hand count and deck counts to to prevent adventurerCard segfault adapted from
 		//OSU CS 362 slack discussion with other students
-		testGame.whoseTurn = currentPlayer;
 
 		
 		printf("------------------------- Random test: %d  -------------------------\n", i);	
@@ -124,12 +123,15 @@ int main()
 				otherPlayer = GetRandomNum(0, numPlayers - 1); 
 			}while(otherPlayer == k);
 
-			//testGame.handCount[k] = GetRandomNum(1, (MAX_HAND));
-			//testGame.deckCount[k] = ((GetRandomNum(1, (MAX_DECK))) - testGame.handCount[k]);
-			//testGame.handCount[k] = rand() % MAX_HAND;
-			//testGame.deckCount[k] = ((rand() % MAX_DECK) - testGame.handCount[k]);
-			testGame.handCount[k] = Game.handCount[k];
-			testGame.deckCount[k] = Game.deckCount[k];
+			testGame.whoseTurn = k;
+			testGame.handCount[k] = GetRandomNum(0, (MAX_HAND));
+			testGame.deckCount[k] = ((GetRandomNum(0, (MAX_DECK))) - testGame.handCount[k]);
+			Game.handCount[k] = testGame.handCount[k]; 
+			Game.deckCount[k] = testGame.deckCount[k];
+			Game.whoseTurn = k;
+			
+			//testGame.handCount[k] = Game.handCount[k];
+			//testGame.deckCount[k] = Game.deckCount[k];
 			printf("\nRandom test %d , iteration %d,  current player %d, random other player %d randomized variable values:\n", i, k, k, otherPlayer);
 			printf("num players: %d\n", numPlayers);
 			printf("current player: %d\n", k);

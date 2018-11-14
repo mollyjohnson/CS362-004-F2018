@@ -84,7 +84,6 @@ int main()
 		int numPlayers = GetRandomNum(2, 4);
 
 		//randomize other player besides current player to be any of the other players
-		int currentPlayer = GetRandomNum(0, numPlayers - 1);
 		int otherPlayer;
 
 		//randomize choices and bonuses
@@ -108,7 +107,6 @@ int main()
 
 		//initialize the game with the given num of players and variables
 		initializeGame(numPlayers, kingdomCards, seed, &Game);
-		testGame.whoseTurn = currentPlayer;
 		
 		printf("------------------------- Random test: %d  -------------------------\n", i);	
 		printf("for each random test, will test with all players as the current player in sequential order (indicated by current player number from positions 0 to \n");
@@ -122,6 +120,14 @@ int main()
 				otherPlayer = GetRandomNum(0, numPlayers - 1); 
 			}while(otherPlayer == k);
 
+			//randomize hand count, deck, and set turn to curr player
+			testGame.handCount[k] = GetRandomNum(0, (MAX_HAND));
+			testGame.deckCount[k] = ((GetRandomNum(0, (MAX_DECK))) - testGame.handCount[k]);
+			testGame.whoseTurn = k;
+			Game.handCount[k] = testGame.handCount[k]; 
+			Game.deckCount[k] = testGame.deckCount[k];
+			Game.whoseTurn = k;
+
 			printf("\nRandom test %d , iteration %d,  current player %d, random other player %d randomized variable values:\n", i, k, k, otherPlayer);
 
 			printf("num players: %d\n", numPlayers);
@@ -133,7 +139,11 @@ int main()
 			printf("bonus: %d\n", bonus);
 			printf("hand position: %d\n", handPos);
 			printf("seed for game randomization: %d\n\n", seed);
-			
+			printf("testGame.handCount[k] is: %d\n",testGame.handCount[k]);
+			printf("testGame.deckCount[k] is: %d\n",testGame.deckCount[k]);
+			printf("Game.handCount[k] is: %d\n",Game.handCount[k]);
+			printf("Game.deckCount[k] is: %d\n\n",Game.deckCount[k]);
+	
 			printf("TEST 1: current player receives 3 cards\n");
 			//do game state copy for the test case
 			memcpy(&testGame, &Game, sizeof(struct gameState));
