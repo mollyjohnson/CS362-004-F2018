@@ -1,0 +1,820 @@
+Results running for unit and card tests:
+unittest1.c:
+------------------------- Testing function: getCost -------------------------
+TEST 1: get card cost curse
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 0, expected: 0
+TEST 2: get card cost estate
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 2, expected: 2
+TEST 3: get card cost duchy
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 4: get card cost province
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 8, expected: 8
+TEST 5: get card cost copper
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 0, expected: 0
+TEST 6: get card cost silver
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 3, expected: 3
+TEST 7: get card cost gold
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 6, expected: 6
+TEST 8: get card cost adventurer
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 6, expected: 6
+TEST 9: get card cost council_room
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 10: get card cost feast
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 11: get card cost gardens
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 12: get card cost mine
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 13: get card cost remodel
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 14: get card cost smithy
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 15: get card cost village
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 3, expected: 3
+TEST 16: get card cost baron
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 17: get card cost great_hall
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 3, expected: 3
+TEST 18: get card cost minion
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 19: get card cost steward
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 3, expected: 3
+TEST 20: get card cost tribute
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 21: get card cost ambassador
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 3, expected: 3
+TEST 22: get card cost cutpurse
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 23: get card cost embargo
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 2, expected: 2
+TEST 24: get card cost outpost
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 5, expected: 5
+TEST 25: get card cost salvager
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 26: get card cost sea_hag
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 27: get card cost treasure_map
+get card cost test: TEST SUCCESSFULLY COMPLETED
+card cost: 4, expected: 4
+TEST 28: get card cost ERROR
+error card test: TEST SUCCESSFULLY COMPLETED
+card cost: -1, expected: -1
+unittest2.c:
+------------------------- Testing function: isGameOver -------------------------
+TEST 1: game should end, three supply piles 0 but province cards not 0
+3 supply piles 0 but province cards are not 0 test: TEST SUCCESSFULLY COMPLETED
+is game over: 1, expected: 1
+TEST 2: game should end, province cards are 0 and 3 supply piles are not 0
+province cards are 0 and 3 supply piles are not test: TEST SUCCESSFULLY COMPLETED
+is game over: 1, expected: 1
+TEST 3: game should not end, province cards are not 0 and supply piles at 0 isn't >= 3
+province cards are 0 and 3 supply piles are not test: TEST SUCCESSFULLY COMPLETED
+is game over: 0, expected: 0
+unittest3.c:
+------------------------- Testing function: handCard -------------------------
+TEST 1: current player's hand at handPos 0
+hand card test: TEST SUCCESSFULLY COMPLETED
+hand card index: 4, expected: 4
+TEST 2: current player hand card count doesn't change
+hand count test: TEST FAILED
+hand count: 8, expected: 5
+TEST 3: no  cards come from the current player's deck
+deck count test: TEST FAILED
+deck count: 1, expected: 5
+TEST 4: discard pile stays the same
+discard pile test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 5: no state change for things specific to other players (hand count, deck count, discard count
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 0, expected: 0
+other player deck count test: TEST SUCCESSFULLY COMPLETED
+other player's deck count: 10, expected: 10
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 6: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 7: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 8: played card pile  stays the same
+played card pile test: TEST FAILED
+played card count count: 1, expected: 0
+TEST 9: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 10: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 11: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 12: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 13: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 14: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 15: numActions does not change
+num actions test: TEST SUCCESSFULLY COMPLETED
+num actions result: 1, expected: 1
+TEST 16: coins does not change
+coins test: TEST SUCCESSFULLY COMPLETED
+coins result: 4, expected: 4
+TEST 17: numBuys does not change
+num buys test: TEST SUCCESSFULLY COMPLETED
+num buys result: 1, expected: 1
+TEST 18: discardCount does not change
+discard count test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+unittest4.c:
+------------------------- Testing function: supplyCount -------------------------
+TEST 1: supply count of card curse
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 2: supply count of card estate
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 8, expected: 8
+TEST 3: supply count of card duchy
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 8, expected: 8
+TEST 4: supply count of card province
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 8, expected: 8
+TEST 5: supply count of card copper
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 46, expected: 46
+TEST 6: supply count of card silver
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 40, expected: 40
+TEST 7: supply count of card gold
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 30, expected: 30
+TEST 8: supply count of card adventurer
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 9: supply count of card council_room
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 10: supply count of card feast
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 11: supply count of card gardens
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 8, expected: 8
+TEST 12: supply count of card mine
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 13: supply count of card remodel
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 14: supply count of card smithy
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 15: supply count of card village
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 16: supply count of card baron
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 17: supply count of card great_hall
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 8, expected: 8
+TEST 18: supply count of card minion
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 19: supply count of card steward
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: 10, expected: 10
+TEST 20: supply count of card tribute
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 21: supply count of card ambassador
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 22: supply count of card cutpurse
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 23: supply count of card embargo
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 24: supply count of card outpost
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 25: supply count of card salvager
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 26: supply count of card sea_hag
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 27: supply count of card treasure_map
+get supply of card test: TEST SUCCESSFULLY COMPLETED
+card supply: -1, expected: -1
+TEST 28: current player hand card count doesn't change
+hand count test: TEST FAILED
+hand count: 8, expected: 5
+TEST 29: no  cards come from the current player's deck
+deck count test: TEST FAILED
+deck count: 1, expected: 5
+TEST 30: discard pile stays the same
+discard pile test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 31: no state change for things specific to other players (hand count, deck count, discard count
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 0, expected: 0
+other player deck count test: TEST SUCCESSFULLY COMPLETED
+other player's deck count: 10, expected: 10
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 32: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 34: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 35: played card pile  stays the same
+played card pile test: TEST FAILED
+played card count count: 1, expected: 0
+TEST 36: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 37: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 38: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 39: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 40: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 41: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 42: numActions does not change
+num actions test: TEST SUCCESSFULLY COMPLETED
+num actions result: 1, expected: 1
+TEST 43: coins does not change
+coins test: TEST SUCCESSFULLY COMPLETED
+coins result: 4, expected: 4
+TEST 44: numBuys does not change
+num buys test: TEST SUCCESSFULLY COMPLETED
+num buys result: 1, expected: 1
+TEST 45: discardCount does not change
+discard count test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+cardtest1.c:
+------------------------- Testing card: smithy -------------------------
+TEST 1: current player receives 3 cards
+hand count test: TEST FAILED
+hand count: 8, expected: 7
+TEST 2: 3 cards come from the current player's deck
+deck count test: TEST FAILED
+deck count: 1, expected: 2
+TEST 3: discard pile stays the same (since card is played not trashed)
+discard pile test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 4: no state change for things specific to other players (hand count, deck count, discard count
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 0, expected: 0
+other player deck count test: TEST SUCCESSFULLY COMPLETED
+other player's deck count: 10, expected: 10
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 5: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 6: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 7: played card pile increases by 1 (since original card is played not trashed)
+played card pile test: TEST SUCCESSFULLY COMPLETED
+played card count count: 1, expected: 1
+TEST 8: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 9: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 10: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 11: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 12: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 13: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 14: numActions does not change
+num actions test: TEST SUCCESSFULLY COMPLETED
+num actions result: 1, expected: 1
+TEST 15: coins does not change
+coins test: TEST SUCCESSFULLY COMPLETED
+coins result: 4, expected: 4
+TEST 16: numBuys does not change
+num buys test: TEST SUCCESSFULLY COMPLETED
+num buys result: 1, expected: 1
+TEST 17: discardCount does not change
+discard count test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+cardtest2.c:
+------------------------- Testing card: village -------------------------
+TEST 1: current player receives 1 card 
+hand count test: TEST FAILED
+hand count: 6, expected: 5
+TEST 2: 1 card come from the current player's deck
+deck count test: TEST FAILED
+deck count: 3, expected: 4
+TEST 3: discard pile stays the same (since card is played not trashed)
+discard pile test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 4: no state change for things specific to other players (hand count, deck count, discard count
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 0, expected: 0
+other player deck count test: TEST SUCCESSFULLY COMPLETED
+other player's deck count: 10, expected: 10
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 5: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 6: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 7: played card pile increases by 1 (since original card is played not trashed)
+played card pile test: TEST SUCCESSFULLY COMPLETED
+played card count count: 1, expected: 1
+TEST 8: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 9: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 10: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 11: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 12: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 13: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 14: numActions for current player increases by 2
+num actions test to increase by 2: TEST FAILED
+num actions result: 4, expected: 3
+TEST 15: coins does not change
+coins test: TEST SUCCESSFULLY COMPLETED
+coins result: 4, expected: 4
+TEST 16: numBuys does not change
+num buys test: TEST SUCCESSFULLY COMPLETED
+num buys result: 1, expected: 1
+TEST 17: discardCount does not change
+discard count test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+cardtest3.c:
+------------------------- Testing card: council_room -------------------------
+TEST 1: current player receives 4 cards
+hand count test: TEST FAILED
+hand count: 7, expected: 8
+TEST 2: 4 cards come from the current player's deck
+deck count test: TEST FAILED
+deck count: 2, expected: 1
+TEST 3: discard pile stays the same (since card is played not trashed)
+discard pile test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 4: no state change for other player's discard count
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 5: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 6: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 7: played card pile increases by 1 (since original card is played not trashed)
+played card pile test: TEST SUCCESSFULLY COMPLETED
+played card count count: 1, expected: 1
+TEST 8: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 9: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 10: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 11: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 12: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 13: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 14: numActions does not change
+num actions test: TEST SUCCESSFULLY COMPLETED
+num actions result: 1, expected: 1
+TEST 15: coins does not change
+coins test: TEST SUCCESSFULLY COMPLETED
+coins result: 4, expected: 4
+TEST 16: numBuys increases by 1
+num buys test: TEST FAILED
+num buys result: 3, expected: 2
+TEST 17: discardCount does not change
+discard count test: TEST SUCCESSFULLY COMPLETED
+discard count: 0, expected: 0
+TEST 18: other player receives 1 card
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 1, expected: 0
+TEST 10: 1 cards come from the other player's deck
+deck count test: TEST SUCCESSFULLY COMPLETED
+deck count: 9, expected: 9
+cardtest4.c:
+------------------------- Testing card: adventurer -------------------------
+TEST 1: current player receives 2 cards
+hand count test: TEST FAILED
+hand count: -633, expected: 6
+TEST 2: 2  cards come from the current player's deck
+deck count test: TEST FAILED
+deck count: 0, expected: 3
+TEST 3: discard pile stays the same (since card is played not trashed)
+discard pile test: TEST FAILED
+discard count: 643, expected: 0
+TEST 4: no state change for things specific to other players (hand count, deck count, discard count
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+other player hand count: 0, expected: 0
+other player deck count test: TEST SUCCESSFULLY COMPLETED
+other player's deck count: 10, expected: 10
+other player discard pile test: TEST SUCCESSFULLY COMPLETED
+other player discard count: 0, expected: 0
+TEST 5: no state change to victory card piles
+kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
+kingdom card smithy count: 10, expected: 10
+kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
+kingdom card adventurer count: 10, expected: 10
+kingdom card village test: TEST SUCCESSFULLY COMPLETED
+kingdom card village count: 10, expected: 10
+kingdom card baron test: TEST SUCCESSFULLY COMPLETED
+kingdom card baron count: 10, expected: 10
+kingdom card minion test: TEST SUCCESSFULLY COMPLETED
+kingdom card minion count: 10, expected: 10
+kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
+kingdom card great_hall count: 8, expected: 8
+kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
+kingdom card council_room count: 10, expected: 10
+kingdom card steward test: TEST SUCCESSFULLY COMPLETED
+kingdom card steward count: 10, expected: 10
+kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
+kingdom card gardens count: 8, expected: 8
+kingdom card mine test: TEST SUCCESSFULLY COMPLETED
+kingdom card mine count: 10, expected: 10
+TEST 6: no state change to kingdom card piles
+victory card estate test: TEST SUCCESSFULLY COMPLETED
+victory card estate count: 8, expected: 8
+victory card duchy test: TEST SUCCESSFULLY COMPLETED
+victory card duchy count: 8, expected: 8
+victory card province test: TEST SUCCESSFULLY COMPLETED
+victory card province count: 8, expected: 8
+TEST 7: played card pile increases by 1 (since original card is played not trashed)
+played card pile test: TEST FAILED
+played card count count: 0, expected: 1
+TEST 8: numPlayers does not change
+other player hand count test: TEST SUCCESSFULLY COMPLETED
+num players: 2, expected: 2
+TEST 9: embargoTokens does not change
+embargo token count test: TEST SUCCESSFULLY COMPLETED
+embargo token count: 0, expected: 0
+TEST 10: outpostPlayed does not change
+outpost played test: TEST SUCCESSFULLY COMPLETED
+outpost played result: 0, expected: 0
+TEST 11: outpostTurn does not change
+outpost turn test: TEST SUCCESSFULLY COMPLETED
+outpost turn result: 0, expected: 0
+TEST 12: whoseTurn does not change
+whose turn test: TEST SUCCESSFULLY COMPLETED
+whose turn result: 0, expected: 0
+TEST 13: phase does not change
+phase test: TEST SUCCESSFULLY COMPLETED
+phase result: 0, expected: 0
+TEST 14: numActions does not change
+num actions test: TEST SUCCESSFULLY COMPLETED
+num actions result: 1, expected: 1
+TEST 15: coins increases by the worth of the 2 coin cards
+coins test: TEST FAILED
+coins result: 4, expected: 6
+TEST 16: numBuys does not change
+num buys test: TEST SUCCESSFULLY COMPLETED
+num buys result: 1, expected: 1
+TEST 17: discardCount does not change
+discard count test: TEST FAILED
+discard count: 643, expected: 0
+Function 'updateCoins'
+Lines executed:81.82% of 11
+Branches executed:100.00% of 8
+Taken at least once:75.00% of 8
+No calls
+
+Function 'gainCard'
+Lines executed:0.00% of 13
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+Calls executed:0.00% of 1
+
+Function 'discardCard'
+Lines executed:84.62% of 13
+Branches executed:100.00% of 6
+Taken at least once:50.00% of 6
+No calls
+
+Function 'cardEffect'
+Lines executed:7.73% of 207
+Branches executed:13.14% of 175
+Taken at least once:2.86% of 175
+Calls executed:9.09% of 55
+
+Function 'villageCard'
+Lines executed:100.00% of 6
+No branches
+Calls executed:100.00% of 3
+
+Function 'stewardCard'
+Lines executed:0.00% of 10
+Branches executed:0.00% of 4
+Taken at least once:0.00% of 4
+Calls executed:0.00% of 5
+
+Function 'council_roomCard'
+Lines executed:100.00% of 10
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+Calls executed:100.00% of 3
+
+Function 'adventurerCard'
+Lines executed:100.00% of 15
+Branches executed:100.00% of 10
+Taken at least once:100.00% of 10
+Calls executed:100.00% of 2
+
+Function 'smithyCard'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+
+Function 'getCost'
+Lines executed:100.00% of 30
+Branches executed:100.00% of 28
+Taken at least once:100.00% of 28
+No calls
+
+Function 'drawCard'
+Lines executed:77.27% of 22
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:100.00% of 1
+
+Function 'getWinners'
+Lines executed:0.00% of 24
+Branches executed:0.00% of 22
+Taken at least once:0.00% of 22
+Calls executed:0.00% of 2
+
+Function 'scoreFor'
+Lines executed:0.00% of 24
+Branches executed:0.00% of 42
+Taken at least once:0.00% of 42
+Calls executed:0.00% of 3
+
+Function 'isGameOver'
+Lines executed:100.00% of 10
+Branches executed:100.00% of 8
+Taken at least once:100.00% of 8
+No calls
+
+Function 'endTurn'
+Lines executed:0.00% of 20
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+Calls executed:0.00% of 3
+
+Function 'whoseTurn'
+Lines executed:100.00% of 2
+No branches
+No calls
+
+Function 'fullDeckCount'
+Lines executed:0.00% of 9
+Branches executed:0.00% of 12
+Taken at least once:0.00% of 12
+No calls
+
+Function 'supplyCount'
+Lines executed:100.00% of 2
+No branches
+No calls
+
+Function 'handCard'
+Lines executed:100.00% of 3
+No branches
+Calls executed:100.00% of 1
+
+Function 'numHandCards'
+Lines executed:0.00% of 2
+No branches
+Calls executed:0.00% of 1
+
+Function 'buyCard'
+Lines executed:0.00% of 13
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+Calls executed:0.00% of 4
+
+Function 'playCard'
+Lines executed:0.00% of 14
+Branches executed:0.00% of 10
+Taken at least once:0.00% of 10
+Calls executed:0.00% of 3
+
+Function 'shuffle'
+Lines executed:100.00% of 16
+Branches executed:100.00% of 8
+Taken at least once:100.00% of 8
+Calls executed:100.00% of 2
+
+Function 'initializeGame'
+Lines executed:83.87% of 62
+Branches executed:95.65% of 46
+Taken at least once:80.43% of 46
+Calls executed:100.00% of 5
+
+Function 'kingdomCards'
+Lines executed:0.00% of 13
+No branches
+No calls
+
+Function 'newGame'
+Lines executed:0.00% of 3
+No branches
+No calls
+
+Function 'compare'
+Lines executed:83.33% of 6
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+No calls
+
+File 'dominion.c'
+Lines executed:36.99% of 565
+Branches executed:36.87% of 415
+Taken at least once:28.92% of 415
+Calls executed:25.00% of 96
+Creating 'dominion.c.gcov'
+
