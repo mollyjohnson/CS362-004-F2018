@@ -25,7 +25,7 @@ randomtestresults: randomtestcard1.c randomtestcard2.c randomtestadventurer.c do
 	echo "Results running for randomtestadventurer.c (adventurer)" > randomtestadventurer.out
 	echo "randomtestadventurer.c (adventurer):" >> randomtestadventurer.out
 	gcc -o randomtestadventurer -g -fpic -lm -coverage randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
-	./randomtestadventurer >> randomtestadventurer.out
+	valgrind ./randomtestadventurer >> randomtestadventurer.out
 	#run gcov on dominion.c with -f (function) flag and -b (branch) flag
 	gcov dominion.c -f -b >> randomtestadventurer.out
 	
