@@ -103,10 +103,10 @@ hand card test: TEST SUCCESSFULLY COMPLETED
 hand card index: 4, expected: 4
 TEST 2: current player hand card count doesn't change
 hand count test: TEST FAILED
-hand count: 9, expected: 5
+hand count: 7, expected: 5
 TEST 3: no  cards come from the current player's deck
 deck count test: TEST FAILED
-deck count: 0, expected: 5
+deck count: 2, expected: 5
 TEST 4: discard pile stays the same
 discard pile test: TEST SUCCESSFULLY COMPLETED
 discard count: 0, expected: 0
@@ -263,10 +263,10 @@ get supply of card test: TEST SUCCESSFULLY COMPLETED
 card supply: -1, expected: -1
 TEST 28: current player hand card count doesn't change
 hand count test: TEST FAILED
-hand count: 9, expected: 5
+hand count: 7, expected: 5
 TEST 29: no  cards come from the current player's deck
 deck count test: TEST FAILED
-deck count: 0, expected: 5
+deck count: 2, expected: 5
 TEST 30: discard pile stays the same
 discard pile test: TEST SUCCESSFULLY COMPLETED
 discard count: 0, expected: 0
@@ -341,11 +341,11 @@ discard count: 0, expected: 0
 cardtest1.c:
 ------------------------- Testing card: smithy -------------------------
 TEST 1: current player receives 3 cards
-hand count test: TEST FAILED
-hand count: 9, expected: 7
+hand count test: TEST SUCCESSFULLY COMPLETED
+hand count: 7, expected: 7
 TEST 2: 3 cards come from the current player's deck
-deck count test: TEST FAILED
-deck count: 0, expected: 2
+deck count test: TEST SUCCESSFULLY COMPLETED
+deck count: 2, expected: 2
 TEST 3: discard pile stays the same (since card is played not trashed)
 discard pile test: TEST SUCCESSFULLY COMPLETED
 discard count: 0, expected: 0
@@ -485,8 +485,8 @@ TEST 13: phase does not change
 phase test: TEST SUCCESSFULLY COMPLETED
 phase result: 0, expected: 0
 TEST 14: numActions for current player increases by 2
-num actions test to increase by 2: TEST FAILED
-num actions result: 4, expected: 3
+num actions test to increase by 2: TEST SUCCESSFULLY COMPLETED
+num actions result: 3, expected: 3
 TEST 15: coins does not change
 coins test: TEST SUCCESSFULLY COMPLETED
 coins result: 4, expected: 4
@@ -663,10 +663,10 @@ Taken at least once:100.00% of 6
 Calls executed:100.00% of 5
 
 Function 'playAdventurer'
-Lines executed:66.67% of 18
-Branches executed:80.00% of 10
-Taken at least once:50.00% of 10
-Calls executed:66.67% of 3
+Lines executed:100.00% of 18
+Branches executed:100.00% of 10
+Taken at least once:90.00% of 10
+Calls executed:100.00% of 3
 
 Function 'playgreat_hall'
 Lines executed:0.00% of 6
@@ -703,9 +703,9 @@ Taken at least once:50.00% of 6
 No calls
 
 Function 'cardEffect'
-Lines executed:4.88% of 205
+Lines executed:5.37% of 205
 Branches executed:12.85% of 179
-Taken at least once:2.79% of 179
+Taken at least once:3.35% of 179
 Calls executed:8.62% of 58
 
 Function 'getCost'
@@ -715,10 +715,10 @@ Taken at least once:100.00% of 28
 No calls
 
 Function 'drawCard'
-Lines executed:36.36% of 22
-Branches executed:33.33% of 6
-Taken at least once:16.67% of 6
-Calls executed:0.00% of 1
+Lines executed:77.27% of 22
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:100.00% of 1
 
 Function 'getWinners'
 Lines executed:0.00% of 24
@@ -783,15 +783,15 @@ Taken at least once:0.00% of 10
 Calls executed:0.00% of 3
 
 Function 'shuffle'
-Lines executed:93.75% of 16
+Lines executed:100.00% of 16
 Branches executed:100.00% of 8
-Taken at least once:87.50% of 8
+Taken at least once:100.00% of 8
 Calls executed:100.00% of 2
 
 Function 'initializeGame'
-Lines executed:83.87% of 62
-Branches executed:95.65% of 46
-Taken at least once:80.43% of 46
+Lines executed:95.16% of 62
+Branches executed:100.00% of 46
+Taken at least once:91.30% of 46
 Calls executed:100.00% of 5
 
 Function 'kingdomCards'
@@ -811,9 +811,9 @@ Taken at least once:75.00% of 4
 No calls
 
 File 'dominion.c'
-Lines executed:34.16% of 565
-Branches executed:35.42% of 415
-Taken at least once:26.75% of 415
-Calls executed:25.74% of 101
+Lines executed:38.41% of 565
+Branches executed:37.35% of 415
+Taken at least once:30.12% of 415
+Calls executed:27.72% of 101
 Creating 'dominion.c.gcov'
 

@@ -1343,7 +1343,8 @@ int updateCoins(int player, struct gameState *state, int bonus)
 int playSmithy(struct gameState *state, int handPos){
 	int currentPlayer = whoseTurn(state);
 	int i;
-	int size = 5;
+	//int size = 5;
+	int size = 3;
 
 	//+3 Cards
 	for (i = 0; i < size; i++){
@@ -1361,7 +1362,8 @@ int playVillage(struct gameState *state,int handPos){
 	//+1 Card
 	drawCard(currentPlayer, state);
 	//+3 Actions
-	state->numActions = state->numActions + 3;
+	//state->numActions = state->numActions + 3;
+	state->numActions = state->numActions + 2;
 	//discard played card from hand
 	discardCard(handPos, currentPlayer, state, 0);
 	return 0;

@@ -198,7 +198,7 @@ int main()
 	//do game state copy for the test case
 	memcpy(&testGame, &Game, sizeof(struct gameState));
 	cardEffect(village, choice1, choice2, choice3, &testGame, handPos, &bonus);
-	Assert(testGame.numActions == Game.numActions, "num actions test to increase by 2");
+	Assert(testGame.numActions == Game.numActions + numActions, "num actions test to increase by 2");
 	printf("num actions result: %d, expected: %d\n", testGame.numActions , Game.numActions + numActions);
 	numActions = 1;
 
