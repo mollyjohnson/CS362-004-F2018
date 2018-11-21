@@ -5,110 +5,18 @@ randomtestadventurer.c (adventurer):
 for each random test, will test with all players as the current player in sequential order (indicated by current player number from positions 0 to 
 numPlayers - 1), and will select  another player at random to be the other player and check for gamestate changes to other players.
 
-Random test 1 , iteration 0,  current player 0, random other player 1 randomized variable values:
-num players: 2
+Random test 1 , iteration 0,  current player 0, random other player 2 randomized variable values:
+num players: 3
 current player: 0
-random other player: 1
-choice 1: 46
-choice 2: 29
-choice 3: 27
-bonus: 78
-hand position: 222
-seed for game randomization: 436
-testGame.handCount[k] is: 406
-testGame.deckCount[k] is: -312
-Game.handCount[k] is: 406
-Game.deckCount[k] is: -312
-TEST 1: current player receives 2 cards
-hand count test: TEST FAILED
-hand count: -1, expected: 407
-TEST 2: 2  cards come from the current player's deck
-deck count test: TEST FAILED
-deck count: 0, expected: -314
-TEST 3: discard pile stays the same (since card is played not trashed)
-discard pile test: TEST FAILED
-discard count: 407, expected: 0
-TEST 4: no state change for things specific to other players (hand count, deck count, discard count
-other player hand count test: TEST SUCCESSFULLY COMPLETED
-other player hand count: 0, expected: 0
-other player deck count test: TEST SUCCESSFULLY COMPLETED
-other player's deck count: 10, expected: 10
-other player discard pile test: TEST SUCCESSFULLY COMPLETED
-other player discard count: 0, expected: 0
-TEST 5: no state change to victory card piles
-kingdom card smithy test: TEST SUCCESSFULLY COMPLETED
-kingdom card smithy count: 10, expected: 10
-kingdom card adventurer test: TEST SUCCESSFULLY COMPLETED
-kingdom card adventurer count: 10, expected: 10
-kingdom card village test: TEST SUCCESSFULLY COMPLETED
-kingdom card village count: 10, expected: 10
-kingdom card baron test: TEST SUCCESSFULLY COMPLETED
-kingdom card baron count: 10, expected: 10
-kingdom card minion test: TEST SUCCESSFULLY COMPLETED
-kingdom card minion count: 10, expected: 10
-kingdom card great_hall test: TEST SUCCESSFULLY COMPLETED
-kingdom card great_hall count: 8, expected: 8
-kingdom card council_room test: TEST SUCCESSFULLY COMPLETED
-kingdom card council_room count: 10, expected: 10
-kingdom card steward test: TEST SUCCESSFULLY COMPLETED
-kingdom card steward count: 10, expected: 10
-kingdom card gardens test: TEST SUCCESSFULLY COMPLETED
-kingdom card gardens count: 8, expected: 8
-kingdom card mine test: TEST SUCCESSFULLY COMPLETED
-kingdom card mine count: 10, expected: 10
-TEST 6: no state change to kingdom card piles
-victory card estate test: TEST SUCCESSFULLY COMPLETED
-victory card estate count: 8, expected: 8
-victory card duchy test: TEST SUCCESSFULLY COMPLETED
-victory card duchy count: 8, expected: 8
-victory card province test: TEST SUCCESSFULLY COMPLETED
-victory card province count: 8, expected: 8
-TEST 7: played card pile increases by 1 (since original card is played not trashed)
-played card pile test: TEST FAILED
-played card count count: 0, expected: 1
-TEST 8: numPlayers does not change
-other player hand count test: TEST SUCCESSFULLY COMPLETED
-num players: 2, expected: 2
-TEST 9: embargoTokens does not change
-embargo token count test: TEST SUCCESSFULLY COMPLETED
-embargo token count: 0, expected: 0
-TEST 10: outpostPlayed does not change
-outpost played test: TEST SUCCESSFULLY COMPLETED
-outpost played result: 0, expected: 0
-TEST 11: outpostTurn does not change
-outpost turn test: TEST SUCCESSFULLY COMPLETED
-outpost turn result: 0, expected: 0
-TEST 12: whoseTurn does not change
-whose turn test: TEST SUCCESSFULLY COMPLETED
-whose turn result: 0, expected: 0
-TEST 13: phase does not change
-phase test: TEST SUCCESSFULLY COMPLETED
-phase result: 0, expected: 0
-TEST 14: numActions does not change
-num actions test: TEST SUCCESSFULLY COMPLETED
-num actions result: 1, expected: 1
-TEST 15: coins increases by the worth of the 2 coin cards
-coins test: TEST FAILED
-coins result: 5, expected: 7
-TEST 16: numBuys does not change
-num buys test: TEST SUCCESSFULLY COMPLETED
-num buys result: 1, expected: 1
-TEST 17: discardCount does not change
-discard count test: TEST FAILED
-discard count: 407, expected: 0
-
-Random test 1 , iteration 1,  current player 1, random other player 0 randomized variable values:
-num players: 2
-current player: 1
-random other player: 0
-choice 1: 46
-choice 2: 29
-choice 3: 27
-bonus: 78
-hand position: 222
-seed for game randomization: 436
-testGame.handCount[k] is: 429
-testGame.deckCount[k] is: -89
-Game.handCount[k] is: 429
-Game.deckCount[k] is: -89
+random other player: 2
+choice 1: 75
+choice 2: 61
+choice 3: 38
+bonus: 73
+hand position: 3
+seed for game randomization: 572
+testGame.handCount[k] is: 458
+testGame.deckCount[k] is: -179
+Game.handCount[k] is: 458
+Game.deckCount[k] is: -179
 TEST 1: current player receives 2 cards
